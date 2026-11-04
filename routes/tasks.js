@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
@@ -326,15 +325,12 @@ router.delete('/:id', async (req, res) => {
             return sendError(res, 404, 'Task not found');
         }
 
-        return res.status(200).json({
-            message: 'Task deleted successfully',
-            data: deletedTask
-        });
+        return res.status(204).send();
+
     } catch (error) {
         return handleError(res, error);
     }
 });
-
 
 
 module.exports = router;

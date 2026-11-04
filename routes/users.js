@@ -360,10 +360,7 @@ router.delete('/:id', async (req, res) => {
             return sendError(res, 404, 'User not found');
         }
 
-        return res.status(200).json({
-            message: 'User deleted successfully',
-            data: deletedUser
-        });
+        return res.status(204).send();
     } catch (error) {
         return handleError(res, error);
     }
